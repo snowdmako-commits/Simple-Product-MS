@@ -61,7 +61,7 @@ def search_by_name():
 
         for p in products:
             if name in p["name"].lower():
-                print(f"ID: {p['id']} | Name: {p['name']} | Price: {p['price']} AZN")
+                print(f"ID: {p["id"]} | Name: {p["name"]} | Price: {p["price"]} AZN")
 
                 found = True
 
@@ -71,11 +71,27 @@ def search_by_name():
     except Exception as e:
         print("Error:", e)
 
+def search_by_id():
+    try :
+        products = load_products()
+        id = int(input("Enter product ID:" ))
 
+        found = False
 
+        for p in products:
+            if p["id"] == id:
+                print(f"ID: {p["id"]} | Name: {p["name"]}, | Price: {p["price"]} AZN")
 
+                found = True
 
+        if not found:
+            print("product not found")
 
+    except ValueError:
+        print("ID must be a number")
+
+    except Exception as e:
+        print("Error:", e)
 
 
 
