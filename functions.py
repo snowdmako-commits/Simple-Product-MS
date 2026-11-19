@@ -8,11 +8,11 @@ def load_products():
             return products
 
     except FileNotFoundError:
-        print("Products file not found!")
+        print("products file not found")
         return []
 
     except json.JSONDecodeError:
-        print("JSON file is empty or incorrect!")
+        print("json file is empty or incorrect")
         return []
 
     except Exception as e:
@@ -20,6 +20,15 @@ def load_products():
         return []
 
 
+def show_products():
+    try:
+        products = load_products()
+
+        for p in products:
+            print(f"ID: {p["id"]} | Name: {p["name"]} | Price: {p["price"]} AZN")
+
+    except Exception as e:
+        print("Error:", e)
 
 
 
