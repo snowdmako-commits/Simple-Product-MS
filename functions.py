@@ -93,6 +93,21 @@ def search_by_id():
     except Exception as e:
         print("Error:", e)
 
+def get_cheapest_product():
+    try:
+        products = load_products()
+
+        if not products:
+            print("no products founded")
+            return
+
+        cheapest = min(products, key=lambda p: p["price"])
+
+        print(f"Cheapest: {cheapest["name"]} - {cheapest["price"]} AZN")
+
+    except Exception as e:
+        print("Error:", e)
+
 
 
 
