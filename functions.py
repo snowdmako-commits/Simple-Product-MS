@@ -108,6 +108,20 @@ def get_cheapest_product():
     except Exception as e:
         print("Error:", e)
 
+def get_expensive_product():
+    try:
+        products = load_products()
+
+        if not products:
+            print("no products available")
+            return
+
+        expensive = max(products, key=lambda p: p["price"])
+
+        print(f"Most Expensive: {expensive["name"]} - {expensive["price"]} AZN")
+
+    except Exception as e:
+        print("Error:", e)
 
 
 
