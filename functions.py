@@ -41,6 +41,17 @@ def sort_by_price_asc():
     except Exception as e:
         print("Error:", e)
 
+def sort_by_price_desc():
+    try:
+        products = load_products()
+        products.sort(key=lambda p: p["price"] , reverse= True)
+
+        for p in products:
+            print(f"{p["name"]} - {p["price"]} AZN")
+
+    except Exception as e:
+        print("Error:", e)
+
 
 
 
