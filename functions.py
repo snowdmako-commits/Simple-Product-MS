@@ -52,7 +52,24 @@ def sort_by_price_desc():
     except Exception as e:
         print("Error:", e)
 
+def search_by_name():
+    try:
+        products = load_products()
+        name = input("Enter product name: ").strip().lower()
 
+        found = False
+
+        for p in products:
+            if name in p["name"].lower():
+                print(f"ID: {p['id']} | Name: {p['name']} | Price: {p['price']} AZN")
+
+                found = True
+
+        if not found:
+            print("product not found")
+
+    except Exception as e:
+        print("Error:", e)
 
 
 
